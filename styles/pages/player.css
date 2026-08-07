@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
+:root {
+    --primary-red: rgb(218, 77, 77);
+    --darker-red: rgb(154, 27, 27);
+    --bg-color: rgb(255, 223, 223);
+    --white: #ffffff;
+    --black: #000000;
+    --text-gray: #666666;
+}
+    
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--black);
+    overflow-x: hidden;
+}
+    
+h1, h2, h3, h4, h5, h6, .font-mono {
+    font-family: 'Kode Mono', monospace;
+}
+    
+/* Header */
+header {
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+    
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+    
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+    
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-red);
+}
+    
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+    
+nav a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+    
+nav a:hover, nav a.active {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+    
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+    
+/* Main Layout */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+    
+/* Player Section */
+.player-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+    
+.current-episode {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+    
+.episode-cover {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+    
+.episode-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    
+.episode-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    
+.episode-details h2 {
+    font-size: 1.8rem;
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+}
+    
+.episode-category {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+    
+.episode-description {
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+    
+.progress-container {
+    margin-bottom: 2rem;
+}
+    
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+    font-family: 'Kode Mono', monospace;
+}
+    
+.progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-red);
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 4px;
+}
+    
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+    
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+.control-btn:hover {
+    color: var(--primary-red);
+    transform: scale(1.1);
+}
+    
+.control-btn.play-pause {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+    
+.control-btn.play-pause:hover {
+    background: var(--darker-red);
+    transform: scale(1.1);
+    color: var(--white);
+}
+    
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+    
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    appearance: none;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+    
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+}
+    
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+    
+.volume-slider::-ms-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+    
+/* Playlist Section */
+.playlist-section {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px);
+}
+    
+.playlist-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+    
+.playlist-header h3 {
+    font-size: 1.3rem;
+    color: var(--primary-red);
+}
+    
+.playlist-header p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-top: 0.25rem;
+}
+    
+.playlist-items {
+    overflow-y: auto;
+    flex: 1;
+}
+    
+.playlist-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+    
+.playlist-item:hover {
+    background: var(--bg-color);
+}
+    
+.playlist-item.active {
+    background: rgba(218, 77, 77, 0.1);
+    border-left: 3px solid var(--primary-red);
+}
+    
+.playlist-item.playing {
+    background: rgba(218, 77, 77, 0.2);
+    border-left: 3px solid var(--primary-red);
+}
+    
+.playing-indicator {
+    display: none;
+    margin-right: 0.5rem;
+}
+    
+.playlist-item.playing .playing-indicator {
+    display: inline-block;
+}
+    
+.playlist-item.playing::before {
+    content: '▶';
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+    
+.episode-number {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-family: 'Kode Mono', monospace;
+    margin-right: 0.5rem;
+}
+    
+.playlist-item-title {
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+    
+.playlist-item-title:hover {
+    color: var(--primary-red);
+}
+    
+.playlist-item-category {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+    
+.playlist-item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+    
+.playlist-creator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+    
+.playlist-creator img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+    
+/* Mobile Responsive */
+@media (max-width: 1000px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .playlist-section {
+        max-height: none;
+        height: 400px;
+    }
+}
+    
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    .current-episode {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .episode-cover {
+        width: 200px;
+        align-self: center;
+        margin: 0 auto
+        
+    }
+    
+    .controls {
+        gap: 30x;
+    }
+    
+    .volume-control {
+        display: none;
+    }
+}
+
+.footer-subtext {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}

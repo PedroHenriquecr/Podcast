@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player - A Culpa É De Quem?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/player.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+           
+            <span class="logo-text">A Culpa É De Quem?</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="episodes.html">Episódios</a></li>
+                
+               
+            </ul>
+        </nav>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <main class="main-container">
+        <!-- Player Section -->
+        <section class="player-section">
+            <div class="current-episode">
+                <div class="episode-cover">
+                    <img id="imagem" src="imagens/trabalho2.png" alt="Podcast Cover">
+                </div>
+                <div class="episode-details">
+                    <h2>Desigualdade e Oportunidade no Brasil</h2>
+                    <span class="episode-category">Social</span>
+                    <p class="episode-description">Muitos jovens enfrentam dificuldades para conseguir o primeiro emprego devido à falta de experiência, à alta concorrência e, em alguns casos, à pouca qualificação profissional. Isso pode dificultar o início da carreira e o desenvolvimento no mercado de trabalho.</p>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalDuration">12:00</span>
+                </div>
+                
+                
+               <input type="range" min="0" max="100" value="0" step="0.1" id="timeSeeker" style="width: 100%; height: 8px; cursor: pointer; -webkit-appearance: none; appearance: none; background: #e0e0e0; border-radius: 4px;">
+               
+            </div>
+
+            <div class="controls">
+                <button class="control-btn" onclick="prevEpisode()">
+                    <span>⏮</span>
+                </button>
+                <button class="control-btn play-pause" onclick="togglePlay()" id="playButton">▶</button>
+                <button class="control-btn" onclick="nextEpisode()">
+                    <span>⏭</span>
+                </button>
+            </div>
+
+            
+        </section>
+
+        <aside class="playlist-section">
+            <div class="playlist-header">
+                <h3>Nossos podcasts</h3>
+            </div>
+            <div class="playlist-items" id="playlist">
+                <!-- Episodes will be populated by JavaScript -->
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 A Culpa É De Quem? - Podcast Educativo. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Projeto do 9º ano</p>
+    </footer>
+
+    <script>
+         const episodes = [
+             {
+                 title: 'Acessibilidade Das Pessoas Com Deficiência Física Na Sociedade Brasileira',
+                 category: 'Social',
+                 creator: 'João andré, João moura, Beatriz, Alice e Luna',
+                 duration: '3:30',
+                 description: '',
+                 thumbnail: 'Imagens/acessibilidade.jpeg',
+                 audioUrl: 'audios/acessibilidade.mp3'
+             },
+             {
+                 title: 'Desafios para a adoção no Brasil ',
+                 category: 'Social',
+                 creator: 'Ana Júlia Viana, Ana Júlia Oliveira, Luiza Rodrigues e Íris',
+                 duration: '3:45',
+                 description: 'adoção do Brasil enfrenta desafios como a demora no processo, a burocracia e a preferência por determinados perfis de crianças, fazendo com que muitas permaneçam por anos a espera de uma família.',
+                 thumbnail: 'https://raw.githubusercontent.com/gabrielhenriquemoreira/sala-s/main/imagens/43446.jpg',
+                 audioUrl: 'audios/adocao.mpeg'
+             },
+             {
+                 title: 'A desigualdade social e seus impactos.',
+                 category: 'Econômico',
+                 creator: 'Luíz Fernando, Eduardo Níveo e Lauro',
+                 duration: '3:26',
+                 description: 'Neste episódio, conversamos sobre a desigualdade social no Brasil, abordando suas principais causas, consequências e possíveis soluções. Também relacionamos o tema ao livro Quarto de Despejo e à reflexão de Ariano Suassuna sobre os “dois Brasis”, mostrando como a desigualdade afeta a vida de milhões de pessoas.',
+                 thumbnail: 'Imagens/desigualdade.jpeg',
+                 audioUrl: 'audios/desigualdade.mp3'
+             },
+             {
+                 title: 'Dificuldades para inserção dos jovens no mercado de trabalho',
+                 category: 'Econômico',
+                 creator: 'Isaac Rodrigues, Paulo Henrique, Miguel Orsine e Bernardo Queiroz',
+                 duration: '2:35',
+                 description: 'Muitos jovens enfrentam dificuldades para conseguir o primeiro emprego devido à falta de experiência, à alta concorrência e, em alguns casos, à pouca qualificação profissional. Isso pode dificultar o início da carreira e o desenvolvimento no mercado de trabalho.',
+                 thumbnail: 'imagens/trabalho2.png',
+                 audioUrl: 'audios/trabalho.mp3'
+             },
+             {
+                 title: 'Saúde pública no Brasil: A importância do SUS',
+                 category: 'Saúde',
+                 creator: 'Luísa Resende, Bianca, Mariana, Arthur e Emanuelle',
+                 duration: '3:56',
+                 description: 'Neste episódio, conversamos com a Dra. Emanuella Francisca sobre o impacto do Sistema Único de Saúde no Brasil! Falamos sobre o histórico do acesso à saúde, a realidade do investimento público, as consequências da falta de recursos e os princípios que fazem o SUS ser fundamental para a população.',
+                 thumbnail: 'imagens/sus.png',
+                 audioUrl: 'audios/sus.mp3'
+             },
+             {
+                 title: 'Como enfrentar a gordofobia no Brasil',
+                 category: 'Social',
+                 creator: 'Miguel Pereira, Bryan, Alan e Juarez',
+                 duration: '2:36',
+                 description: 'A gordofobia no Brasil é um preconceito que afeta pessoas gordas por meio de discriminação, exclusão e estereótipos, presentes em diferentes áreas da sociedade, como trabalho, saúde e convivência social. Esse problema é reforçado por padrões de beleza que valorizam a magreza, causando impactos como baixa autoestima, ansiedade e dificuldade de acesso a um atendimento respeitoso. Combater a gordofobia exige promover respeito, inclusão e conscientização, garantindo que todas as pessoas sejam tratadas com dignidade.',
+                 thumbnail: 'https://raw.githubusercontent.com/gabrielhenriquemoreira/sala-s/main/imagens/43446.jpg',
+                 audioUrl: 'audios/gordofobia.mp3'
+             },
+             {
+                 title: 'Capacitismo e os desafios das pessoas com deficiência',
+                 category: 'Social',
+                 creator: 'Pedro, Vinícius, David, João Gabriel, Miguel Santos e Kauã',
+                 duration: '3:07',
+                 description: 'As pessoas com deficiencia enfrentam diversos problemas no dia a dia devido a falta de acessibilidade, mostrando que muitos direitos garantidos pelas leis não tem a sua devida fiscalização.',
+                 thumbnail: 'imagens/capacitismo.png',
+                 audioUrl: 'audios/capacitismo.mp3'
+             }
+         ];
+
+
+        let currentEpisodeIndex = 0;
+        let isPlaying = false;
+        let audioElement = new Audio();
+        let currentAudio = null;
+        const imageElement = document.querySelector('#imagem');
+        const urlParams = new URLSearchParams(window.location.search);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadEpisode(urlParams.get('episode'));
+            currentEpisodeIndex = parseInt(urlParams.get('episode'));
+            renderPlaylist();
+        });
+
+         function renderPlaylist() {
+             const playlistContainer = document.getElementById('playlist');
+             playlistContainer.innerHTML = '';
+ 
+             episodes.forEach((episode, index) => {
+                 const item = document.createElement('div');
+                 item.className = `playlist-item ${index === currentEpisodeIndex ? 'active' : ''}`;
+                 if (index === currentEpisodeIndex && isPlaying) {
+                     item.classList.add('playing');
+                 }
+ 
+                 item.innerHTML = `
+                     
+                     <span class="episode-number">#${index + 1}</span>
+                     <a href="#" class="playlist-item-title">${episode.title}</a>
+                     <span class="playlist-item-category">${episode.category}</span>
+                     <div class="playlist-item-meta">
+                         <span class="playlist-creator">
+                             
+                             <span>${episode.creator}</span>
+                         </span>
+                         <span>${episode.duration}</span>
+                     </div>
+                 `;
+ 
+                 item.addEventListener('click', () => loadEpisode(index));
+                 playlistContainer.appendChild(item);
+             });
+         }
+ 
+         function loadEpisode(index) {
+             currentEpisodeIndex = index;
+             const episode = episodes[index];
+ 
+             document.querySelector('.episode-details h2').textContent = episode.title;
+             document.querySelector('.episode-details .episode-category').textContent = episode.category;
+             document.querySelector('.episode-details .episode-description').textContent = episode.description;
+             document.getElementById('totalDuration').textContent = episode.duration;
+             document.getElementById('imagem').src = episode.thumbnail;
+ 
+             // Update Audio Source
+             audioElement.src = episode.audioUrl;
+             audioElement.load();
+             
+             // If it was playing, pause it first before switching
+             audioElement.play().catch(e => console.error("Playback failed:", e));
+             isPlaying = true;
+             updatePlayButton();
+             
+             renderPlaylist();
+         }
+ 
+         function updatePlayButton() {
+             const playButton = document.getElementById('playButton');
+             playButton.textContent = isPlaying ? '⏸' : '▶';
+         }
+ 
+         function togglePlay() {
+             if (audioElement.src) {
+                 if (isPlaying) {
+                     audioElement.pause();
+                 } else {
+                     audioElement.play().catch(e => console.error("Playback failed:", e));
+                 }
+                 isPlaying = !isPlaying;
+                 updatePlayButton();
+             }
+         }
+ 
+         function prevEpisode() {
+             if (currentEpisodeIndex > 0) {
+                 loadEpisode(currentEpisodeIndex - 1);
+             }
+         }
+ 
+         function nextEpisode() {
+             if (currentEpisodeIndex < episodes.length - 1) {
+                 loadEpisode(currentEpisodeIndex + 1);
+             }
+         }
+ 
+         function toggleMenu() {
+             const nav = document.querySelector('nav ul');
+             nav.classList.toggle('show');
+         }
+ 
+         // Progress Bar Logic
+          const progressFill = document.getElementById('progressFill');
+          const timeSeeker = document.getElementById('timeSeeker');
+          const currentTimeSpan = document.getElementById('currentTime');
+
+          audioElement.addEventListener('timeupdate', () => {
+              if (audioElement.duration) {
+                  const progress = (audioElement.currentTime / audioElement.duration) * 100;
+                  
+                  
+                  const mins = Math.floor(audioElement.currentTime / 60);
+                  const secs = Math.floor(audioElement.currentTime % 60).toString().padStart(2, '0');
+                  currentTimeSpan.textContent = `${mins}:${secs}`;
+                  
+                  timeSeeker.value = progress;
+              }
+          });
+
+          // Click on progress bar to seek
+          
+
+          // Click on range slider to seek
+          timeSeeker.addEventListener('input', (e) => {
+              if (audioElement.duration) {
+                  const seekPosition = (e.target.value / 100) * audioElement.duration;
+                  audioElement.currentTime = seekPosition;
+                  progressFill.style.width = `${e.target.value}%`;
+                  currentTimeSpan.textContent = `${Math.floor(seekPosition / 60)}:${Math.floor(seekPosition % 60).toString().padStart(2, '0')}`;
+              }
+          });
+ 
+         audioElement.addEventListener('ended', () => {
+             if (currentEpisodeIndex < episodes.length - 1) {
+                 nextEpisode();
+             } else {
+                 isPlaying = false;
+                 updatePlayButton();
+             }
+         });
+
+         // Initialize
+         renderPlaylist();
+         
+     </script>
+
+</body>
+</html>

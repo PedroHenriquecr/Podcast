@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episódios - A Culpa É De Quem?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages/episodes.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+         
+            <span class="logo-text">A Culpa É De Quem?</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="episodes.html" class="active">Episódios</a></li>
+                
+                
+            </ul>
+        </nav>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Todos os Episódios</h1>
+            <p>Explore nossa coleção de discussões sobre sociedade, política e economia.</p>
+        </div>
+    </section>
+
+    <main class="episodes-container">
+        <div class="category-filters">
+            <button class="category-btn active" onclick="filterEpisodes('all', this)">Todos</button>
+            <button class="category-btn" onclick="filterEpisodes('social', this)">Social</button>
+            <button class="category-btn" onclick="filterEpisodes('saúde', this)">Saúde</button>
+            <button class="category-btn" onclick="filterEpisodes('economico', this)">Econômico</button>
+            
+        </div>
+
+        <div class="episodes-grid" id="episodesGrid">
+            <!-- Episode 1 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=0'">
+                <div class="episode-thumb">
+                    <img src="imagens/acessibilidade.jpeg" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Social</div>
+                    <h3 class="episode-title">Acessibilidade Das Pessoas Com Deficiência Física Na Sociedade Brasileira</h3>
+                    <p class="episode-description"></p>
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>João andré, João moura, Beatriz, Alice e Luna</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 2 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=1'">
+                <div class="episode-thumb">
+                    <img src="https://raw.githubusercontent.com/gabrielhenriquemoreira/sala-s/main/imagens/43446.jpg" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Social</div>
+                    <h3 class="episode-title">Desafios para a adoção no Brasil</h3>
+                   
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Ana Júlia Viana, Ana Júlia Oliveira, Luiza Rodrigues e Íris</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 3 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=2'">
+                <div class="episode-thumb">
+                    <img src="Imagens/Desigualdade.jpeg" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Econômico</div>
+                    <h3 class="episode-title">A desigualdade social e seus impactos</h3>
+                    
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Luíz Fernando, Eduardo Níveo e Lauro</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 4 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=3'">
+                <div class="episode-thumb">
+                    <img src="Imagens/Trabalho.jpeg" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Econômico</div>
+                    <h3 class="episode-title">Dificuldades para inserção dos jovens no mercado de trabalho</h3>
+                    
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Isaac Rodrigues, Paulo Henrique, Miguel Orsine e Bernardo Queiroz</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 5 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=4'">
+                <div class="episode-thumb">
+                    <img src="Imagens/SUS.png" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Saúde</div>
+                    <h3 class="episode-title">Saúde pública no Brasil: A importância do SUS</h3>
+                    
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Luísa Resende, Bianca, Mariana, Arthur e Emanuelle</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 6 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=5'">
+                <div class="episode-thumb">
+                    <img src="https://raw.githubusercontent.com/gabrielhenriquemoreira/sala-s/main/imagens/43446.jpg" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Social</div>
+                    <h3 class="episode-title">Como enfrentar a gordofobia no Brasil</h3>
+                    
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Miguel Pereira, Bryan, Alan e Juarez</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Episode 7 -->
+            <article class="episode-card" onclick="window.location.href='player.html?episode=6'">
+                <div class="episode-thumb">
+                    <img src="imagens/capacitismo.png" alt="Episódio 1">
+                    <div class="episode-play-btn"></div>
+                </div>
+                <div class="episode-info">
+                    <div class="episode-category">Social</div>
+                    <h3 class="episode-title">Capacitismo e os desafios das pessoas com deficiência</h3>
+                    
+                    <div class="episode-meta">
+                        <div class="episode-creator">
+                            
+                            <span>Pedro, Vinícius, David, João Gabriel, Miguel Santos e Kauã</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 A Culpa É De Quem? - Podcast Educativo. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Projeto do 9º ano</p>
+    </footer>
+
+      <script>
+            function toggleMenu() {
+                const nav = document.querySelector('nav ul');
+                nav.classList.toggle('show');
+            }
+
+            function truncateText(element, maxLength) {
+                if (element) {
+                    const text = element.textContent.trim();
+                    if (text.length > maxLength) {
+                        element.textContent = text.substring(0, maxLength) + '...';
+                    }
+                }
+            }
+
+            function normalizeString(str) {
+                return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+
+            function filterEpisodes(category, btn) {
+            const episodeCards = document.querySelectorAll('.episode-card');
+            const allButtons = document.querySelectorAll('.category-btn');
+
+            // Update active button
+            allButtons.forEach(button => {
+                button.classList.remove('active');
+                if (normalizeString(button.textContent) === normalizeString(category) || 
+                    (category === 'all' && button.textContent === 'Todos')) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Filter episodes
+            episodeCards.forEach(card => {
+                const episodeCategory = normalizeString(card.querySelector('.episode-category').textContent);
+                
+                if (category === 'all' || episodeCategory === normalizeString(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

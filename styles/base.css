@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: rgb(218, 77, 77);
+    --darker-red: rgb(154, 27, 27);
+    --bg-color: rgb(255, 223, 223);
+    --white: #ffffff;
+    --black: #000000;
+    --text-gray: #666666;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--black);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-mono {
+    font-family: 'Kode Mono', monospace;
+}

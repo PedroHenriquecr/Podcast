@@ -1,0 +1,299 @@
+/* Section Titles */
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* Submit Button */
+.submit-btn {
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    font-family: 'Kode Mono', monospace;
+}
+
+.submit-btn:hover {
+    background: var(--darker-red);
+    transform: scale(1.02);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+/* Social Buttons */
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--white);
+    border: 2px solid var(--primary-red);
+    border-radius: 25px;
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+/* Player Controls */
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    color: var(--primary-red);
+    transform: scale(1.1);
+}
+
+.control-btn.play-pause {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+.control-btn.play-pause:hover {
+    background: var(--darker-red);
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+/* Volume Slider */
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    appearance: none;
+    background: #e0e0e0;
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.volume-slider::-ms-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Playlist Items */
+.playlist-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.playlist-item:hover {
+    background: var(--bg-color);
+}
+
+.playlist-item.active {
+    background: rgba(218, 77, 77, 0.1);
+    border-left: 3px solid var(--primary-red);
+}
+
+.playlist-item.playing {
+    background: rgba(218, 77, 77, 0.2);
+    border-left: 3px solid var(--primary-red);
+}
+
+.playlist-item.playing::before {
+    content: '▶';
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.playlist-creator img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-red);
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 4px;
+}
+
+.progress-fill:hover {
+    cursor: pointer;
+}
+
+/* Range Slider */
+#timeSeeker {
+    cursor: pointer;
+    transition: opacity 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 100%;
+    background: var(--primary-red);
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 4px;
+}
+
+#timeSeeker::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -6px;
+    transition: transform 0.2s;
+}
+
+#timeSeeker::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+#timeSeeker::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+#timeSeeker::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+#timeSeeker::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+#timeSeeker::-ms-thumb:hover {
+    transform: scale(1.2);
+}
+
+#timeSeeker::-webkit-slider-runnable-track {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#timeSeeker::-moz-range-track {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+}

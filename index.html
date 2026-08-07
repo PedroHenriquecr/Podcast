@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Culpa É De Quem? - Podcast Educativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/pages/index.css">
+    <link rel="stylesheet" href="styles/pages/about.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            
+            <span class="logo-text">A Culpa É De Quem?</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="episodes.html">Episódios</a></li>
+                
+                
+            </ul>
+        </nav>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sobre o Podcast A Culpa É De Quem?</h1>
+            <p>Uma plataforma educativa para discutir as questões mais importantes do nosso tempo.</p>
+        </div>
+    </section>
+
+    <main class="about-section">
+        <section class="mission">
+            <h2>Nossa Missão</h2>
+            <p>O podcast <strong>A Culpa É De Quem?</strong> nasceu como um projeto educacional para discutir questões sociais, políticas e econômicas que afetam o Brasil e o mundo. Acreditamos que a educação é a ferramenta mais poderosa para transformar o futuro.</p>
+            <p>Nosso objetivo é criar um espaço onde jovens e adulescentes possam ouvir debates sobre temas relevantes, desenvolver pensamento crítico e construir soluções conjuntas para os desafios contemporâneos.</p>
+        </section>
+
+        
+
+        <section class="values">
+            <div class="value-card">
+                
+                <h4>Educação</h4>
+                <p>Nosso foco principal é educar sobre os temas tratados, garantindo que cada episódio seja informativo, claro e acessível.</p>
+            </div>
+            <div class="value-card">
+                
+                <h4>Debate</h4>
+                <p>Acreditamos no poder do diálogo aberto. Criamos um espaço seguro para diferentes perspectivas se encontrarem.</p>
+            </div>
+            <div class="value-card">
+                
+                <h4>Impacto</h4>
+                <p>Nosso objetivo é causar impacto real, inspirando ouvintes a se engajarem ativamente na sociedade.</p>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Episódios</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">600+</div>
+                <div class="stat-label">Ouvintes</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Gratuito</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 A Culpa É De Quem? - Podcast Educativo. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Projeto do 9º ano</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+    </script>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+
+        function truncateText(element, maxLength) {
+            if (element) {
+                const text = element.textContent.trim();
+                if (text.length > maxLength) {
+                    element.textContent = text.substring(0, maxLength) + '...';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
